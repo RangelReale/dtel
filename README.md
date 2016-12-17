@@ -12,16 +12,16 @@ The library provides events, tasks in a thread pool, loop runners, and comes wit
 #### Example
 
 ```c++
-        duk_context *ctx = duk_create_heap_default();
-        
-		EventLoop el(ctx);
+    duk_context *ctx = duk_create_heap_default();
+    
+	EventLoop el(ctx);
 
-		eventtarget::RegisterEventTarget(&el);
-		auto CNHandler = console::RegisterConsole(&el);
-		CNHandler->setWorker(make_intrusive<Console>());
-		settimeout::RegisterSetTimeout(&el);
-		auto WKHandler = worker::RegisterWorker(&el);
-		WKHandler->setWorker(make_intrusive<Worker>());
+	eventtarget::RegisterEventTarget(&el);
+	auto CNHandler = console::RegisterConsole(&el);
+	CNHandler->setWorker(make_intrusive<Console>());
+	settimeout::RegisterSetTimeout(&el);
+	auto WKHandler = worker::RegisterWorker(&el);
+	WKHandler->setWorker(make_intrusive<Worker>());
 		
 	if (duk_peval_string(el.ctx(), R"(	
 console.log("Message from console");
@@ -49,6 +49,16 @@ w.postMessage("Message from main loop");
 	{
 		ThrowError(el.ctx(), -1);
 	}
+	
+	std::thread t([&el] {
+		std::this_thread::sleep_for(std::chrono::milliseconds(7000));
+		std::cout << "** TERMINATING **" << std::endl;
+		el.terminate();
+	});
+
+	el.run();
+
+	t.join();
 
 ```
 

@@ -139,7 +139,15 @@ int main(int argc, char *argv[])
 		test_setTimeout(el);
 		test_worker(el);
 
+		std::thread t([&el] {
+			std::this_thread::sleep_for(std::chrono::milliseconds(7000));
+			std::cout << "** TERMINATING **" << std::endl;
+			el.terminate();
+		});
+
 		el.run();
+
+		t.join();
 	}
 
 	duk_destroy_heap(ctx);

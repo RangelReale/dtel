@@ -79,6 +79,10 @@ Output:
 PRESS ANY KEY TO CONTINUE
 ```
 
+### Plugins
+
+* XMLHttpRequest - [DTEL-XHR](https://github.com/RangelReale/dtel-xhr)
+
 ### Author
 
 Rangel Reale (http://github.com/RangelReale)

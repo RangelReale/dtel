@@ -89,6 +89,7 @@ public:
 	 */
 	void run()
 	{
+		_terminated = false;
 		while (!_terminated)
 		{
 			auto now = std::chrono::steady_clock::now();
@@ -159,7 +160,11 @@ public:
 				//std::cout << "--- SLEEP FOR " << std::chrono::duration_cast<std::chrono::milliseconds>(timeout - now).count() << std::endl;
 				_events_cv.wait_until(cvlock, timeout);
 			}
+	
 		}
+
+		std::unique_lock<std::recursive_mutex> lock(_mutex);
+		_events.clear();
 	}
 
 	/**

@@ -152,5 +152,8 @@ int main(int argc, char *argv[])
 
 	duk_destroy_heap(ctx);
 
+	std::cout << "PRESS ANY KEY TO CONTINUE";
+	std::cin.ignore();
+
 	return 0;
 }

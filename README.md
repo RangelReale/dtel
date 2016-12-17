@@ -62,6 +62,23 @@ w.postMessage("Message from main loop");
 
 ```
 
+Output:
+
+```
+-- CONSOLE: log ** Message from console
+-- CONSOLE: log ** worker started!
+-- CONSOLE: log ** $$ WORKER RECEIVED MESSAGE $$: Message from main loop
+-- CONSOLE: log ** Message from WORKER! ## WORKER RESPONSE ##
+-- CONSOLE: log ** Message every 500ms
+-- CONSOLE: log ** Single message after 1000ms
+-- CONSOLE: log ** Message every 500ms
+-- CONSOLE: log ** Message every 500ms
+-- CONSOLE: log ** Message every 500ms
+-- CONSOLE: log ** Cancelling message every 500ms
+** TERMINATING **
+PRESS ANY KEY TO CONTINUE
+```
+
 ### Author
 
 Rangel Reale (http://github.com/RangelReale)

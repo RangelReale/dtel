@@ -83,6 +83,13 @@ PRESS ANY KEY TO CONTINUE
 
 * XMLHttpRequest - [DTEL-XHR](https://github.com/RangelReale/dtel-xhr)
 
+### Dependencies (all included)
+
+* https://github.com/thelink2012/any - std::experimental::any implementation
+* https://github.com/vit-vit/ctpl - C++ thread pool
+* https://github.com/akrzemi1/Optional - std::experimental::optional implementation
+* https://github.com/creationix/dukluv/blob/master/src/refs.c - ref implementation for duktape
+
 ### Author
 
 Rangel Reale (http://github.com/RangelReale)

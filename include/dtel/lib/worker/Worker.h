@@ -126,7 +126,7 @@ public:
 
 	virtual void loadUrl(duk_context *ctx, EventLoop *eventloop, const std::string &url)
 	{
-		duk_push_error_object(ctx, DUK_ERR_UNIMPLEMENTED_ERROR, "Worker url loading not implemented");
+		duk_push_error_object(ctx, DUK_ERR_ERROR, "Worker url loading not implemented");
 		duk_throw(ctx);
 	}
 };
